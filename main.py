@@ -2,10 +2,10 @@ import re
 
 class Person:
     def __init__(self, fio, age, passport, weight):
-    self.__fio = fio  # устанавливаем имя
-    self.__age = age  # устанавливаем возраст
-    self.__passport = passport  # устанавливаем паспорт
-    self.__weight = weight  # устанавливаем вес
+        self.__fio = fio  # устанавливаем имя
+        self.__age = age  # устанавливаем возраст
+        self.__passport = passport  # устанавливаем паспорт
+        self.__weight = weight  # устанавливаем вес
 
     @property
     def age(self):
@@ -17,7 +17,8 @@ class Person:
             self.__age = age
         else:
             print("Возраст должен быть целым числом от 14 до 150")
-                                                                                                                            @property                                                 
+
+    @property
     def fio(self):
         return self.__fio
 
@@ -26,14 +27,31 @@ class Person:
         pattern = r"([А-ЯЁ][а-яё]+[\-\s]?){1,}"
         if re.match(pattern, fio) is not None:
             self.__fio = fio
-        else: 
+        else:
             print("Недопустимое имя")
-    @property                            
-    def passport(self):                                                                                                         return self.__passport
-                                                                                                                            @passport.setter                                                                                                        def passport(self, passport):
-        pattern = r"\d{4}\s\d{6}"                                                                                               if re.match(pattern, passport) is not None:                                                                                   self.__passport = passport                           
-        else:                                                                                                                         print("Неверный формат паспорта")                                                                             @property                                                                                                               def weight(self):
-        return self.__weight                                                                                                                                                                                                                        @weight.setter                                                                                                          def weight(self, weight):
-        if weight >= 25:                                                                                                               self.__weight = weight                                                                                           else:                                                                   
-            print("Вес должен быть вещественным числом от 25 и выше")                                                                                                                                                                                                                                                                                                       def display_info(self)                             
-            print(f"Имя: {self.__fio}\tВозраст: {self.__age} \tПаспорт: {self.__passport}\tВес: {self.__weight}")
+
+    @property
+    def passport(self):
+        return self.__passport
+
+    @passport.setter
+    def passport(self, passport):
+        pattern = r"\d{4}\s\d{6}"
+        if re.match(pattern, passport) is not None:
+            self.__passport = passport
+        else:
+            print("Неверный формат паспорта")
+
+    @property
+    def weight(self):
+        return self.__weight
+
+    @weight.setter
+    def weight(self, weight):
+        if weight >= 25:
+            self.__weight = weight
+        else:
+            print("Вес должен быть вещественным числом от 25 и выше")
+
+    def display_info(self):
+        print(f"Имя: {self.__fio}\tВозраст: {self.__age} \tПаспорт: {self.__passport}\tВес: {self.__weight}")
